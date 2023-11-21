@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTrending } from 'js/api';
-import TitlesList from 'components/TitlesList/TitlesList';
-import { Loader } from 'components/Loader/Loader';
+import { TitlesList } from '../../components/TitlesList/TitlesList';
+import { Loader } from '../../components/Loader/Loader';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <main>
       <h1>Trending today</h1>
-      <ul>{<TitlesList movies={movies} />}</ul>
+      {<TitlesList movies={movies} />}
       {loading && <Loader />}
     </main>
   );
