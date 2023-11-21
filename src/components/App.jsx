@@ -1,9 +1,15 @@
-import { Loader } from './Loader/Loader';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { SharedLayout } from './SharedLayout/SharedLayout';
+const Home = lazy(() => import('../pages/Home/Home'));
+//import { Loader } from './Loader/Loader';
 
 export const App = () => {
   return (
-    <>
-      <Loader />
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   );
 };
