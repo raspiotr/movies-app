@@ -1,0 +1,13 @@
+.RevsList {
+  list-style: none;
+  padding: 0;
+}
+
+.RevAuthor {
+  margin-bottom: 8px;
+}
+
+.RevContent {
+  margin-top: 0;
+  font-style: italic;
+}

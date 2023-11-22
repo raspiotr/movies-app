@@ -8,20 +8,10 @@ export const SharedLayout = () => {
     <div className={css.Container}>
       <header className={css.Header}>
         <nav className={css.Nav}>
-          <NavLink
-            to="/"
-            exact
-            className={css.Link}
-            activeClassName={css.Active}
-            end
-          >
+          <NavLink to="/" className={css.Link} end>
             Home
           </NavLink>
-          <NavLink
-            to="/movies"
-            className={css.Link}
-            activeClassName={css.Active}
-          >
+          <NavLink to="/movies" className={css.Link}>
             Movies
           </NavLink>
         </nav>

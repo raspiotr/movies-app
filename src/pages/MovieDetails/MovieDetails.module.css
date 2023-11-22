@@ -1,0 +1,26 @@
+.Box {
+  display: flex;
+  gap: 25px;
+}
+
+.Image {
+  width: 250px;
+}
+
+.GenresList {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 15px;
+}
+
+.Title {
+  margin: 5px auto;
+}
+
+.OriginalTitle {
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 0;
+  font-size: medium;
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Loader } from '../../components/Loader/Loader';
 import { Searchbar } from '../../components/Searchbar/Searchbar';
 import { TitlesList } from '../../components/TitlesList/TitlesList';
@@ -7,8 +8,12 @@ import Notiflix from 'notiflix';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryFromURL = searchParams.get('query');
+
+  const [query, setQuery] = useState(queryFromURL || '');
 
   useEffect(() => {
     if (query === '') {
@@ -40,6 +45,7 @@ const Movies = () => {
 
   const handleSearch = myQuery => {
     setQuery(myQuery);
+    setSearchParams({ query: myQuery });
     setMovies([]);
   };
 
