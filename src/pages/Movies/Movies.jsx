@@ -45,7 +45,7 @@ const Movies = () => {
 
   const handleSearch = myQuery => {
     setQuery(myQuery);
-    setSearchParams({ query: myQuery });
+    myQuery !== '' ? setSearchParams({ query: myQuery }) : setSearchParams({});
     setMovies([]);
   };
 

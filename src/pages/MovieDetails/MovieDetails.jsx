@@ -1,5 +1,5 @@
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { BackLink } from '../../components/BackLink/BackLink';
 import { Loader } from '../../components/Loader/Loader';
 import { fetchMovieDetails } from '../../js/api';
@@ -10,18 +10,11 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [prevLocation, setPrevLocation] = useState(null);
-  const [query, setQuery] = useState('');
+
   const location = useLocation();
+  const locationRef = useRef({ ...location });
 
-  useEffect(() => {
-    setPrevLocation(location);
-    const searchParams = new URLSearchParams(location.search);
-    setQuery(searchParams.get('query') || '');
-  }, [location]);
-
-  const backLinkHref =
-    prevLocation?.state?.from ?? (query ? `/movies?query=${query}` : '/');
+  const backLinkHref = locationRef.current?.state?.from ?? '/';
 
   useEffect(() => {
     async function loadMovieDetails() {
