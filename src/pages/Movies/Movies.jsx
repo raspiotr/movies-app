@@ -5,6 +5,7 @@ import { Searchbar } from '../../components/Searchbar/Searchbar';
 import { TitlesList } from '../../components/TitlesList/TitlesList';
 import { fetchSearchMovies } from 'js/api';
 import Notiflix from 'notiflix';
+import css from './Movies.module.css';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -52,8 +53,12 @@ const Movies = () => {
   return (
     <main>
       <Searchbar onSubmit={handleSearch} />
-      <TitlesList movies={movies} />
       {isLoading && <Loader />}
+      {movies.length !== 0 && (
+        <div className={css.TitlesBox}>
+          <TitlesList movies={movies} />
+        </div>
+      )}
     </main>
   );
 };
