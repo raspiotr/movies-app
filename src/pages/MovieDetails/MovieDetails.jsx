@@ -56,50 +56,55 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <BackLink to={backLinkHref}>Go back</BackLink>
-      {isLoading && <Loader />}
-      {movieDetails && (
-        <div className={css.Box}>
-          <div>
-            <img
-              className={css.Image}
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w500${poster_path}`
-                  : `https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/original.png`
-              }
-              alt={original_title}
-            />
+      <div className={css.MainDetails}>
+        <BackLink to={backLinkHref}>Go back</BackLink>
+        {isLoading && <Loader />}
+        {movieDetails && (
+          <div className={css.Box}>
+            <div>
+              <img
+                className={css.Image}
+                src={
+                  poster_path
+                    ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                    : `https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/original.png`
+                }
+                alt={original_title}
+              />
+            </div>
+            <div>
+              <h1 className={css.Title}>
+                {title} ({release_date.slice(0, 4)})
+              </h1>
+              {title !== original_title && (
+                <p className={css.OriginalTitle}>{original_title}</p>
+              )}
+              <p>User Score: {Math.round(vote_average * 10)}%</p>
+              <h2>Overview</h2>
+              <p>{overview ? overview : 'This movie has no overview yet.'}</p>
+              <h2>Genres</h2>
+              <ul className={css.GenresList}>
+                {genres.length !== 0
+                  ? genres.map(item => <li key={item.id}>{item.name}</li>)
+                  : 'No genres assigned.'}
+              </ul>
+            </div>
           </div>
-          <div>
-            <h1 className={css.Title}>
-              {title} ({release_date.slice(0, 4)})
-            </h1>
-            {title !== original_title && (
-              <p className={css.OriginalTitle}>{original_title}</p>
-            )}
-            <p>User Score: {Math.round(vote_average * 10)}%</p>
-            <h2>Overview</h2>
-            <p>{overview ? overview : 'This movie has no overview yet.'}</p>
-            <h2>Genres</h2>
-            <ul className={css.GenresList}>
-              {genres.length !== 0
-                ? genres.map(item => <li key={item.id}>{item.name}</li>)
-                : 'No genres assigned.'}
-            </ul>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
       <div>
-        <h3>Additional information</h3>
-        <ul>
-          <li>
-            <Link to="cast">Cast</Link>
-          </li>
-          <li>
-            <Link to="reviews">Reviews</Link>
-          </li>
-        </ul>
+        <div className={css.AdditionalLinks}>
+          <h3>Additional information</h3>
+          <ul>
+            <li>
+              <Link to="cast">Cast</Link>
+            </li>
+            <li>
+              <Link to="reviews">Reviews</Link>
+            </li>
+          </ul>
+        </div>
+
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

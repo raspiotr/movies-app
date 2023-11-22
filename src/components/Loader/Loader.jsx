@@ -7,10 +7,10 @@ export const Loader = () => {
       <Oval
         height={100}
         width={100}
-        color="#4fa94d"
+        color="rgb(223, 69, 14)"
         visible={true}
         ariaLabel="oval-loading"
-        secondaryColor="#4fa94d"
+        secondaryColor="rgb(223, 69, 14)"
         strokeWidth={2}
         strokeWidthSecondary={2}
       />

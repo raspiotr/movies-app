@@ -1,5 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 import css from './TitlesList.module.css';
+import PropTypes from 'prop-types';
 
 export const TitlesList = ({ movies }) => {
   const location = useLocation();
@@ -17,4 +18,8 @@ export const TitlesList = ({ movies }) => {
       </ul>
     </div>
   );
+};
+
+TitlesList.propTypes = {
+  movies: PropTypes.object.isRequired,
 };

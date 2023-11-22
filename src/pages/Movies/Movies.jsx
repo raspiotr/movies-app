@@ -52,7 +52,7 @@ const Movies = () => {
   return (
     <main>
       <Searchbar onSubmit={handleSearch} />
-      {<TitlesList movies={movies} />}
+      <TitlesList movies={movies} />
       {isLoading && <Loader />}
     </main>
   );

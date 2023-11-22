@@ -34,7 +34,7 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={css.ContentBox}>
       {isLoading && <Loader />}
 
       {movieReviews.length !== 0 ? (

@@ -10,6 +10,11 @@
   margin-right: auto;
 }
 
+.ListItem {
+  width: 150px;
+  justify-self: center;
+}
+
 .ActorImage {
   width: 150px;
 }
@@ -17,10 +22,18 @@
 .ActorName {
   font-weight: 700;
   margin: 5px auto;
+  font-size: 15px;
 }
 
 .Character {
   font-size: 14px;
   line-height: 1.4;
   margin: 5px auto;
+}
+
+.Content {
+  border-bottom: 1px solid #3f51b546;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  padding: 5px;
 }
