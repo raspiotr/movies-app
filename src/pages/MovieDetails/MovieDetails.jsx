@@ -96,10 +96,10 @@ const MovieDetails = () => {
         <div className={css.AdditionalLinks}>
           <h3>Additional information</h3>
           <ul>
-            <li>
+            <li className={css.ListItem}>
               <Link to="cast">Cast</Link>
             </li>
-            <li>
+            <li className={css.ListItem}>
               <Link to="reviews">Reviews</Link>
             </li>
           </ul>
