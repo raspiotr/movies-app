@@ -7,11 +7,22 @@
 
 .Box {
   display: flex;
+  flex-direction: column;
   gap: 25px;
 }
 
 .Image {
-  width: 250px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .Box {
+    flex-direction: row;
+  }
+
+  .Image {
+    width: 250px;
+  }
 }
 
 .GenresList {
